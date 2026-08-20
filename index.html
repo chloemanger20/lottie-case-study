@@ -336,14 +336,23 @@ footer{
 .theme-toggle:hover{border-color:var(--pink)}
 
 @media print{
-  nav{display:none}
+  nav,.theme-toggle{display:none}
   body{background:#fff;font-size:12pt}
-  header{background:#fff;color:var(--ink);padding:0 0 24px;border-bottom:2px solid var(--found)}
+  header{background:var(--found-soft);color:var(--ink);padding:40px 0 32px;border-bottom:none}
   header h1{color:var(--ink)}
   header p,header .eyebrow{color:var(--ink-soft)}
-  .rank,.panel,.email,.article{break-inside:avoid;box-shadow:none}
-  .note{background:#fff;color:var(--ink);border:1px solid var(--line)}
-  .note .label{color:var(--ink-faint)}
+  header .eyebrow{color:var(--found)}
+  section{padding:40px 0 8px}
+  .rank,.panel,.email,.article,.closer{break-inside:avoid;box-shadow:none}
+  .rank{border:1px solid var(--line)}
+  .email{border:1px solid var(--line)}
+  .note{background:#1e2170;color:#e0e1f0;border:none;break-inside:avoid}
+  .note .label{color:#9a9ccc}
+  .cols{break-inside:avoid}
+  .panel{box-shadow:none}
+  .closer{break-inside:avoid}
+  .tip{break-inside:avoid}
+  footer{break-inside:avoid}
 }
 </style>
 </head>
@@ -490,7 +499,7 @@ footer{
 
     <div class="note">
       <div class="label">Internal note for Engineering</div>
-      <p>User &lt;name of user here&gt; reports repeated crashes when sending invoices. Browser tab freezes then reloads (screenshot attached). Started [date], happens on batches over 10 invoices, single invoices send fine. Timestamps: [08:04:00, 08:07:00 - BST]. Couldn't reproduce on test account with bulk batch. No matching reports from other users. Partner is blocked from billing flagging as urgent. Happy to jump on a call if needed.</p>
+      <p>User &lt;name of user here&gt; reports repeated crashes when sending invoices. Browser tab freezes then reloads (screenshot attached). Started 21-08=2026, happens on batches over 10 invoices, single invoices send fine. Timestamps: [08:04:00, 08:07:00 - BST]. Couldn't reproduce on test account with bulk batch. No matching reports from other users. Partner is blocked from billing flagging as urgent. Happy to jump on a call if needed.</p>
     </div>
   </div>
 </section>
