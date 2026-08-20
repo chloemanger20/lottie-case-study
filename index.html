@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lottie Case Study</title>
+<style>
+:root{
+  --ink:#12251d;
+  --ink-soft:#41544b;
+  --ink-faint:#6d7f76;
+  --paper:#faf7f1;
+  --card:#ffffff;
+  --line:#e3ddd1;
+  --green:#14453a;
+  --green-soft:#eaf1ec;
+  --coral:#e2664a;
+  --coral-soft:#fbeae5;
+  --amber:#c98a1e;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(18,37,29,.05), 0 8px 24px rgba(18,37,29,.05);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* header */
+header{
+  background:var(--green);
+  color:#f4f1e9;
+  padding:64px 0 56px;
+}
+header .eyebrow{
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#9dc0b1;
+  margin:0 0 14px;
+  font-weight:600;
+}
+header h1{
+  margin:0 0 14px;
+  font-size:42px;
+  line-height:1.15;
+  letter-spacing:-.02em;
+  font-weight:700;
+}
+header p{
+  margin:0;
+  max-width:52ch;
+  color:#cfdcd5;
+  font-size:18px;
+}
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(250,247,241,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+nav ul{
+  display:flex;
+  gap:28px;
+  list-style:none;
+  margin:0;
+  padding:14px 0;
+  overflow-x:auto;
+}
+nav a{
+  color:var(--ink-soft);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  white-space:nowrap;
+}
+nav a:hover{color:var(--coral)}
+
+/* sections */
+section{padding:60px 0 8px}
+.sec-head{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  margin-bottom:8px;
+}
+.sec-num{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--coral);
+}
+h2{
+  margin:0;
+  font-size:29px;
+  letter-spacing:-.015em;
+  font-weight:700;
+}
+.brief{
+  margin:0 0 30px;
+  color:var(--ink-faint);
+  font-size:15px;
+  max-width:62ch;
+}
+
+/* triage */
+.rank{
+  display:flex;
+  gap:18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px 24px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow);
+}
+.rank-no{
+  flex:0 0 34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:16px;
+}
+.rank h3{
+  margin:2px 0 6px;
+  font-size:18px;
+  font-weight:700;
+}
+.rank h3 span{
+  color:var(--ink-faint);
+  font-weight:500;
+}
+.rank p{margin:0;color:var(--ink-soft)}
+
+/* email cards */
+.email{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  margin-bottom:24px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.email-head{
+  background:var(--green-soft);
+  border-bottom:1px solid var(--line);
+  padding:13px 24px;
+  font-size:14px;
+  font-weight:700;
+  color:var(--green);
+  letter-spacing:.01em;
+}
+.email-body{padding:26px 24px}
+.email-body p{margin:0 0 16px}
+.email-body p:last-child{margin-bottom:0}
+.email-body ul{margin:0 0 16px;padding-left:22px}
+.email-body li{margin-bottom:6px}
+.sign{color:var(--ink-soft)}
+
+/* two column lists */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px}
+.panel{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px 24px;
+  box-shadow:var(--shadow);
+}
+.panel h3{
+  margin:0 0 14px;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--coral);
+}
+.panel ul{margin:0;padding-left:20px}
+.panel li{margin-bottom:10px;color:var(--ink-soft)}
+.panel li:last-child{margin-bottom:0}
+
+/* internal note */
+.note{
+  background:#11201a;
+  border-radius:var(--radius);
+  padding:24px 26px;
+  color:#dfe8e3;
+  box-shadow:var(--shadow);
+}
+.note .label{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#7fa695;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.note p{
+  margin:0;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:14.5px;
+  line-height:1.7;
+}
+
+/* help article */
+.article{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  margin-bottom:24px;
+}
+.article-head{
+  padding:24px 26px 20px;
+  border-bottom:1px solid var(--line);
+}
+.article-head h3{margin:0 0 10px;font-size:22px;font-weight:700;letter-spacing:-.01em}
+.alt{
+  margin:0;
+  font-size:14px;
+  color:var(--ink-faint);
+}
+.alt strong{color:var(--ink-soft);font-weight:600}
+.article-body{padding:24px 26px}
+.article-body h4{
+  margin:0 0 12px;
+  font-size:16px;
+  font-weight:700;
+}
+.article-body h4.mt{margin-top:26px}
+.article-body ol{margin:0;padding-left:22px}
+.article-body ol li{margin-bottom:9px}
+.article-body p{margin:0 0 14px;color:var(--ink-soft)}
+.article-body p:last-child{margin-bottom:0}
+.tip{
+  margin-top:24px;
+  background:var(--coral-soft);
+  border-left:3px solid var(--coral);
+  border-radius:0 8px 8px 0;
+  padding:14px 18px;
+  font-size:15.5px;
+  color:#7a3524;
+}
+.tip strong{font-weight:700}
+
+.closer{
+  background:var(--green-soft);
+  border-radius:var(--radius);
+  padding:24px 26px;
+}
+.closer h3{
+  margin:0 0 10px;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--green);
+}
+.closer p{margin:0;color:var(--ink-soft)}
+
+footer{
+  margin-top:70px;
+  border-top:1px solid var(--line);
+  padding:28px 0 50px;
+  color:var(--ink-faint);
+  font-size:14px;
+}
+
+@media (max-width:720px){
+  header{padding:46px 0 40px}
+  header h1{font-size:32px}
+  .cols{grid-template-columns:1fr}
+  section{padding:44px 0 4px}
+  h2{font-size:24px}
+}
+@media print{
+  nav{display:none}
+  body{background:#fff;font-size:12pt}
+  header{background:#fff;color:var(--ink);padding:0 0 24px;border-bottom:2px solid var(--green)}
+  header h1{color:var(--ink)}
+  header p,header .eyebrow{color:var(--ink-soft)}
+  .rank,.panel,.email,.article{break-inside:avoid;box-shadow:none}
+  .note{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .note .label{color:var(--ink-faint)}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Lottie &middot; Partner Support</p>
+    <h1>Case study</h1>
+    <p>Triage, partner replies, a bug handover and a help centre article. Written by Chloe.</p>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <ul>
+      <li><a href="#triage">1. Triage</a></li>
+      <li><a href="#replies">2. Replies</a></li>
+      <li><a href="#bug">3. The bug</a></li>
+      <li><a href="#prevent">4. Stop it happening again</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section id="triage">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Task 1</span><h2>Triage</h2></div>
+    <p class="brief">The five tickets in the order I would handle them, with the reasoning behind each position.</p>
+
+    <div class="rank">
+      <div class="rank-no">1</div>
+      <div>
+        <h3>Ticket 1 - Orchard Grove <span>(missing enquiries)</span></h3>
+        <p>This is a second occurrence so there&rsquo;s a risk of lost trust with the partner. They are our biggest MRR at &pound;1,080, and they've asked for a call. Missing enquiries means lost revenue and data.</p>
+      </div>
+    </div>
+
+    <div class="rank">
+      <div class="rank-no">2</div>
+      <div>
+        <h3>Ticket 4 - Hazeldene <span>(invoice crashes)</span></h3>
+        <p>The Partner is blocked from billing and sitting in live chat expecting a fast reply. The issue can&rsquo;t be diagnosed by ticket alone so needs diagnosis should be started early to give Engineering time.</p>
+      </div>
+    </div>
+
+    <div class="rank">
+      <div class="rank-no">3</div>
+      <div>
+        <h3>Ticket 2 - Willow House <span>(add new staff)</span></h3>
+        <p>Two staff can't work in the system, and it looks to be a quick fix. Clearing it fast frees full attention for the two big investigations. I would also make a note to add to the knowledge base.</p>
+      </div>
+    </div>
+
+    <div class="rank">
+      <div class="rank-no">4</div>
+      <div>
+        <h3>Ticket 5 - Bramble Hill <span>(wrong &pound;36 charge)</span></h3>
+        <p>Money being taken incorrectly brings trust into question. However this is small, contained, and quick to verify and credit. There is no ongoing harm or anything to suggest an ongoing bug while this waits.</p>
+      </div>
+    </div>
+
+    <div class="rank">
+      <div class="rank-no">5</div>
+      <div>
+        <h3>Ticket 3 - Fernlea <span>(invoice query)</span></h3>
+        <p>The charge is correct and nothing is broken. It's an internal communication gap on their side. This will require a careful worded reply so I would leave it till last when there's time to write it properly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="replies">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Task 2</span><h2>Two replies</h2></div>
+    <p class="brief">My actual first reply to each partner, exactly as I would send it.</p>
+
+    <div class="email">
+      <div class="email-head">Ticket 1 &middot; Orchard Grove</div>
+      <div class="email-body">
+        <p>Good morning, (name),</p>
+        <p>I&rsquo;m sorry to hear about the missing enquiries, especially as this has happened before. I am investigating this now to find out what is causing the issue.</p>
+        <p>To help me get to the bottom of this quickly, could you please let me know:</p>
+        <ul>
+          <li>Roughly which homes and days the missing enquiries came from.</li>
+          <li>How they were logged (e.g., via phone or form, and which staff members).</li>
+          <li>Any details from the previous instance (date or ticket reference) so I can see if the issues are connected.</li>
+        </ul>
+        <p>Once I have had an initial look, I&rsquo;ll come back to you with what I&rsquo;ve found. Then we can set up a call if that would still be useful.</p>
+        <p class="sign">Kind regards,<br>Chloe</p>
+      </div>
+    </div>
+
+    <div class="email">
+      <div class="email-head">Ticket 3 &middot; Fernlea</div>
+      <div class="email-body">
+        <p>Hi (name),</p>
+        <p>Thanks for reaching out about this.</p>
+        <p>I&rsquo;ve looked into your latest invoice. The increase reflects the addition of your second home to Found in mid-May, which was requested by your Registered Manager at the time.</p>
+        <p>The &pound;180 charge is the pro-rated cost for that second home for the remainder of May. Moving forward, your monthly invoice will be &pound;720, reflecting the standard rate for both homes.</p>
+        <p>I appreciate this wasn&rsquo;t flagged to you at the time. I have attached a full breakdown of the charges if that is useful. Please let me know if anything doesn&rsquo;t add up once you&rsquo;ve had a look and I&rsquo;ll be more than happy to help.</p>
+        <p class="sign">Kind regards,<br>Chloe</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bug">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Task 3</span><h2>The bug</h2></div>
+    <p class="brief">Ticket 4, Hazeldene. What I would ask, what I would check, and the note I would send to Engineering.</p>
+
+    <div class="cols">
+      <div class="panel">
+        <h3>Questions for Hazeldene</h3>
+        <ul>
+          <li>Does this happen when you click send Invoices in Found itself, or somewhere else, like email?</li>
+          <li>What do you see when it crashes? Do you see an error message or does something happen? A screenshot would be really helpful.</li>
+          <li>Does it happen every time you try to send an invoice or only sometimes?</li>
+          <li>Does a single invoice send okay or is it only on batch sends?</li>
+          <li>When did this start, could you provide a rough time?</li>
+          <li>Are all four branches seeing this or just one?</li>
+          <li>What are you using a computer or tablet and which browser?</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Checking simultaneously</h3>
+        <ul>
+          <li>Any matching reports from other partners in the last few days?</li>
+          <li>Try to reproduce the error in a test account with both a single and a bulk batch of invoices</li>
+          <li>Any similar reports from other partners in Pylon</li>
+          <li>Check the partner's account for anything unusual: recent changes, invoice batch size, data that might not be saving properly</li>
+          <li>Check with Engineering whether anything was deployed over the weekend, since the timing lines up</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <div class="label">Internal note for Engineering</div>
+      <p>User &lt;name of user here&gt; reports repeated crashes when sending invoices. Browser tab freezes then reloads (screenshot attached). Started [date], happens on batches over 10 invoices, single invoices send fine. Timestamps: [08:04:00, 08:04:00 - BST]. Couldn't reproduce on test account with bulk batch. No matching reports from other users. Partner is blocked from billing flagging as urgent. Happy to jump on a call if needed.</p>
+    </div>
+  </div>
+</section>
+
+<section id="prevent">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">Task 4</span><h2>Stop it happening again</h2></div>
+    <p class="brief">A help centre article a partner like Willow House could use themselves, and that the AI Agent could answer from instantly.</p>
+
+    <div class="article">
+      <div class="article-head">
+        <h3>How do I add a new staff member to Found?</h3>
+        <p class="alt"><strong>Also answers:</strong> adding a user, new starter, setting up a login, colleague needs access, someone left and I need to give their replacement access</p>
+      </div>
+      <div class="article-body">
+        <h4>Adding someone new to Found:</h4>
+        <ol>
+          <li>Log in to Found and go to Settings &gt; Team</li>
+          <li>Click Add New User.</li>
+          <li>Enter their name and their work email (each person needs their own login, even on a shared computer).</li>
+          <li>Choose their role/permission level (this controls what they&rsquo;re able to see and do in Found).</li>
+          <li>Click Save. Shortly after they'll get an email to set their own password.</li>
+        </ol>
+
+        <p style="margin-top:20px">Removing someone who&rsquo;s left? Go to the same Team page, find their name and select Remove Access.</p>
+        <p>Can&rsquo;t find the Team page or don&rsquo;t have permission to add users? This is usually restricted to admin-level accounts, check with your administrators or contact us if you need pointing in the right direction!</p>
+
+        <h4 class="mt">When someone leaves</h4>
+        <p>Remove their access straight away: Settings &gt; Team, find their name, select Remove Access. Their past work (enquiries, notes) remains auditable after they leave .</p>
+
+        <h4 class="mt">Can't see the Team page?</h4>
+        <p>Adding users is usually restricted to admin accounts. Check with your manager, or contact us at &lt;email_here&gt; and we&rsquo;ll point you in the right direction!</p>
+
+        <div class="tip"><strong>Tip:</strong> it's worth having at least two admins per home, so access doesn't get stuck when one person leaves.</div>
+      </div>
+    </div>
+
+    <div class="closer">
+      <h3>A month in, how would I decide what to document next?</h3>
+      <p>After a month I'd have Pylon data to work from, so I'd look at which questions keep reaching me and which ones the AI Agent escalates most often. Anything the Agent repeatedly hands over is a gap in the knowledge base, so should be prioritised. Beyond frequency, I'd weigh impact, an issue tripping up several partners takes priority over a rare edge case.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Chloe &middot; Lottie partner support case study</div>
+</footer>
+
+</body>
+</html>
